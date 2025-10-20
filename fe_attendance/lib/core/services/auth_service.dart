@@ -7,12 +7,18 @@ class AuthService {
   AuthService(this.api);
 
   Future<Map<String, dynamic>> login(String email, String password) async {
-    final resp = await api.post('/auth/login', data: {'email': email, 'password': password});
+    final resp = await api.post(
+      '/auth/login',
+      data: {'email': email, 'password': password},
+    );
     if (resp.statusCode == 200) {
       final data = resp.data as Map<String, dynamic>;
       final prefs = await SharedPreferences.getInstance();
       if (data.containsKey('access_token')) {
-        await prefs.setString(AppConstants.STORAGE_TOKEN_KEY, data['access_token']);
+        await prefs.setString(
+          AppConstants.STORAGE_TOKEN_KEY,
+          data['access_token'],
+        );
       }
       return data;
     }

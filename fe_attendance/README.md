@@ -1,3 +1,8 @@
+# Face Attendance - Flutter (client)
+
+Skeleton for Face Recognition Attendance App (Flutter) connecting to Laravel + Python backends.
+
+See `lib/` for implementation.
 # attendance
 
 A new Flutter project.

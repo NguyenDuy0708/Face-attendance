@@ -7,7 +7,10 @@ class FaceRecognitionService {
 
   Future<Map<String, dynamic>> verifyFace(Map<String, dynamic> payload) async {
     final dio = api.dio;
-    final resp = await dio.post('${AppConstants.BASE_URL_PYTHON_AI}/verify', data: payload);
+    final resp = await dio.post(
+      '${AppConstants.BASE_URL_PYTHON_AI}/verify',
+      data: payload,
+    );
     return resp.data as Map<String, dynamic>;
   }
 }

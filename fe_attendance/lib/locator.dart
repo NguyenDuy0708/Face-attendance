@@ -8,7 +8,13 @@ final GetIt locator = GetIt.instance;
 
 Future<void> setupLocator() async {
   locator.registerSingleton<ApiClient>(ApiClient());
-  locator.registerLazySingleton<AuthService>(() => AuthService(locator<ApiClient>()));
-  locator.registerLazySingleton<AttendanceService>(() => AttendanceService(locator<ApiClient>()));
-  locator.registerLazySingleton<FaceRecognitionService>(() => FaceRecognitionService(locator<ApiClient>()));
+  locator.registerLazySingleton<AuthService>(
+    () => AuthService(locator<ApiClient>()),
+  );
+  locator.registerLazySingleton<AttendanceService>(
+    () => AttendanceService(locator<ApiClient>()),
+  );
+  locator.registerLazySingleton<FaceRecognitionService>(
+    () => FaceRecognitionService(locator<ApiClient>()),
+  );
 }
